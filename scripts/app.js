@@ -3,7 +3,7 @@ module.exports = function(gideonbot) {
         return res.send("yes sir?");
     });
 
-    gideonbot.respond(/what is your favorite (.*)/, function(msg) {
+    gideonbot.respond(/what is your favorite (.*)/i, function(msg) {
         var fav;
         fav = msg.match[1];
         console.log(fav);
