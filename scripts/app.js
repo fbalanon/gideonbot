@@ -1,5 +1,5 @@
 module.exports = function(gideonbot) {
-    gideonbot.hear(/hey buddy/, function(res) {
+    gideonbot.hear(/hey gideon/, function(res) {
         return res.send("yes sir?");
     });
 
@@ -9,7 +9,7 @@ module.exports = function(gideonbot) {
         console.log(fav);
         switch (fav) {
             case "dance move":
-            return msg.reply("The Robot of Course!!");
+            return msg.reply("The Robot of Course!!" + "https://media.giphy.com/media/1Mng0gXC5Tpcs/giphy.gif");
             break;
         case "band":
             return msg.reply("It's gotta be Daft Punk!");
