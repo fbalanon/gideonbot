@@ -13,11 +13,16 @@ var randomReset = reset[Math.floor(Math.random() * reset.length)];
 var randomMotivate = motivate[Math.floor(Math.random() * motivate.length)];
 var randomSports = sports[Math.floor(Math.random() * sports.length)];
 
-
 var topics = function(){
+    var string;
+    function tableContents () {
     for (i = 0; i < classTopics.length; i++)
-    console.log(classTopics[i]);
+    string = string + classTopics[i] + "\n";
+    console.log(string);
+    };
+    return tableContents();
 };
+
 var slides = function(num) {
   return classSlides[num];  
 };
@@ -52,7 +57,7 @@ module.exports = function(gideonbot) {
    if (number <= classSlides.length){
      return num.send(classSlides[number]);
    } else {
-     return num.reply("Please look at the topic list again!");
+     return num.reply("Please look at the class topics again!");
    }
 
  });
