@@ -33,23 +33,43 @@ module.exports = function(gideonbot) {
     gideonbot.hear(/hey gideon/, function(res) {
         return res.send("yes sir?");
     });
-
+    gideonbot.respond(/I'm (.*)/i, function(msg) {
+        var mood;
+        mood = msg.match[1];
+        console.log(mood);
+        switch (mood) {
+            case "tired":
+                return msg.reply("listen to some music for motivation! \n" + randomMotivate);
+                break;
+            case "blah":
+                return msg.reply("enjoy! \n" + randomSports);
+                break;
+            case "going crazy":
+                return msg.reply("take a break \n" + randomReset);
+                break;
+            case "done":
+                return msg.reply("Congratulations!!! \n" + "https://youtu.be/pIOOwhmkoLo");
+                break;
+            default:
+                return msg.reply("Sorry, I can't help you, phone a friend!");
+   }
+ });
     gideonbot.respond(/what (.*)/i, function(msg) {
         var question;
         question = msg.match[1];
         console.log(question);
         switch (question) {
             case "is your favorite dance move?":
-            return msg.reply("The Robot of Course!!" + " " + "https://media.giphy.com/media/1Mng0gXC5Tpcs/giphy.gif");
-            break;
-        case "is the meaning of life?":
-            return msg.reply("42");
-            break;
-        case "are the class topics?":
-            return msg.reply(topics());
-            break;
-        default:
-            return msg.reply("I don't understand " + question + ". Have a good day!");
+                return msg.reply("The Robot of Course!!" + " " + "https://media.giphy.com/media/1Mng0gXC5Tpcs/giphy.gif");
+                break;
+            case "is the meaning of life?":
+                return msg.reply("42");
+                break;
+            case "are the class topics?":
+                return msg.reply(topics());
+                break;
+            default:
+                return msg.reply("I don't understand " + question + ". Have a good day!");
    }
  });
  gideonbot.respond(/class slides (.*)/i, function(num) {
@@ -81,45 +101,14 @@ module.exports = function(gideonbot) {
    });
 */
 //Code to receive some random motivation, reset or take a break, or to feel accomplished
-    gideonbot.respond(/I'm (.*)/i, function(msg) {
-        var mood;
-        mood = msg.match[1];
-        console.log(mood);
-        switch (mood) {
-            case "tired":
-            return msg.reply("listen to some music for motivation! \n");
-            break;
-        case "blah":
-            return msg.reply("enjoy! \n" + randomSports);
-            break;
-        case "going crazy":
-            return msg.reply("take a break \n" + randomReset);
-            break;
-        case "done":
-            return msg.reply("Congratulations!!! \n" + "https://youtu.be/pIOOwhmkoLo");
-            break;
-        default:
-            return msg.reply("Sorry, I can't help you, phone a friend!");
-   }
- });
 
  gideonbot.respond(/what's due?/i, function(res) {
-    if (month === 2 && day < 28) {
+    if ((month == 2) && (day < 28)) {
+        console.log(month + "-" + day);
         return res.reply("https://github.com/svodnik/sfjs6/tree/master/05-slackbot-lab "  + "https://github.com/svodnik/sfjs6/tree/master/06-objects-json");
     } else {
     return res.reply("I believe it's all on you now, good luck!!!");
     }
-});
-
-//    var today = new Date();
- //   var month = today.getMonth() + 1;
- //   var day = today.getDate();
-
- /*   if (today.getMonth === 1 && today.getDate < 28) {
-        return res.reply("https://github.com/svodnik/sfjs6/tree/master/05-slackbot-lab "  + "https://github.com/svodnik/sfjs6/tree/master/06-objects-json");
-    } else {
-    return msg.reply("I believe it's all on you now, good luck!!!");
- }
 });
 
 /*
