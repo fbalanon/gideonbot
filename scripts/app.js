@@ -1,6 +1,6 @@
-// var today = new Date();
-// var month = today.getMonth() + 1;
-// var day = today.getDate();
+ var today = new Date();
+ var month = today.getMonth() + 1;
+ var day = today.getDate();
 
 var motivate = ["https://youtu.be/CevxZvSJLk8", "https://youtu.be/co6WMzDOh1o", "https://youtu.be/IKqV7DB8Iwg", "https://youtu.be/G_Vzpjv_kR4", "https://youtu.be/XuRnNRHcN4A", "https://youtu.be/vx2u5uUu3DE", "https://youtu.be/btPJPFnesV4", "https://youtu.be/y6Sxv-sUYtM", "https://youtu.be/04854XqcfCY", "https://youtu.be/rmpQReqZfd0", "https://youtu.be/nfWlot6h_JM"];
 var reset = ["https://www.youtube.com/watch?v=GdIaEL72PwI&t=2s","https://www.youtube.com/watch?v=ORirnHtuWjc","https://www.youtube.com/watch?v=un0ga8KBlYs&t=2s","https://www.youtube.com/watch?v=H_hgNmdONPE&t=2s","https://www.youtube.com/watch?v=d_pu9OtR3Ik&t=2s"]
@@ -81,37 +81,46 @@ module.exports = function(gideonbot) {
    });
 */
 //Code to receive some random motivation, reset or take a break, or to feel accomplished
-    gideonbot.respond(/I'm (.*)/i, function(stat) {
+    gideonbot.respond(/I'm (.*)/i, function(msg) {
         var mood;
-        mood = stat.match[1];
+        mood = msg.match[1];
         console.log(mood);
         switch (mood) {
             case "tired":
-            return stat.reply("listen to some music for motivation! \n" + randomMotivate);
+            return msg.reply("listen to some music for motivation! \n");
             break;
         case "blah":
-            return stat.reply("enjoy! \n" + randomSports);
+            return msg.reply("enjoy! \n" + randomSports);
             break;
         case "going crazy":
-            return stat.reply("take a break \n" + randomReset);
+            return msg.reply("take a break \n" + randomReset);
             break;
         case "done":
-            return stat.reply("Congratulations!!! \n" + "https://youtu.be/pIOOwhmkoLo");
+            return msg.reply("Congratulations!!! \n" + "https://youtu.be/pIOOwhmkoLo");
             break;
         default:
-            return stat.reply("Sorry, I can't help you, phone a friend!");
+            return msg.reply("Sorry, I can't help you, phone a friend!");
    }
  });
 
  gideonbot.respond(/what's due?/i, function(res) {
-    var today = new Date();
-    var month = today.getMonth() + 1;
-    var day = today.getDate();    
     if (month === 2 && day < 28) {
         return res.reply("https://github.com/svodnik/sfjs6/tree/master/05-slackbot-lab "  + "https://github.com/svodnik/sfjs6/tree/master/06-objects-json");
     } else {
+    return res.reply("I believe it's all on you now, good luck!!!");
+    }
+});
+
+//    var today = new Date();
+ //   var month = today.getMonth() + 1;
+ //   var day = today.getDate();
+
+ /*   if (today.getMonth === 1 && today.getDate < 28) {
+        return res.reply("https://github.com/svodnik/sfjs6/tree/master/05-slackbot-lab "  + "https://github.com/svodnik/sfjs6/tree/master/06-objects-json");
+    } else {
     return msg.reply("I believe it's all on you now, good luck!!!");
-    }});
+ }
+});
 
 /*
     if ((month === 2) && (day < 28)) {
