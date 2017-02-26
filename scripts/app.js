@@ -87,7 +87,7 @@ module.exports = function(gideonbot) {
         console.log(mood);
         switch (mood) {
             case "tired":
-            return msg.reply("listen to some music for motivation! \n" + randomMotivate);
+            return msg.reply("listen to some music for motivation! \n");
             break;
         case "blah":
             return msg.reply("enjoy! \n" + randomSports);
