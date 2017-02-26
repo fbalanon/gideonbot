@@ -1,6 +1,6 @@
-var today = new Date();
-var month = today.getMonth() + 1;
-var day = today.getDate();
+// var today = new Date();
+// var month = today.getMonth() + 1;
+// var day = today.getDate();
 
 var motivate = ["https://youtu.be/CevxZvSJLk8", "https://youtu.be/co6WMzDOh1o", "https://youtu.be/IKqV7DB8Iwg", "https://youtu.be/G_Vzpjv_kR4", "https://youtu.be/XuRnNRHcN4A", "https://youtu.be/vx2u5uUu3DE", "https://youtu.be/btPJPFnesV4", "https://youtu.be/y6Sxv-sUYtM", "https://youtu.be/04854XqcfCY", "https://youtu.be/rmpQReqZfd0", "https://youtu.be/nfWlot6h_JM"];
 var reset = ["https://www.youtube.com/watch?v=GdIaEL72PwI&t=2s","https://www.youtube.com/watch?v=ORirnHtuWjc","https://www.youtube.com/watch?v=un0ga8KBlYs&t=2s","https://www.youtube.com/watch?v=H_hgNmdONPE&t=2s","https://www.youtube.com/watch?v=d_pu9OtR3Ik&t=2s"]
@@ -14,13 +14,14 @@ var randomMotivate = motivate[Math.floor(Math.random() * motivate.length)];
 var randomSports = sports[Math.floor(Math.random() * sports.length)];
 
 var topics = function(){
-    var string;
+    var string= "\n";
     function tableContents () {
     for (i = 0; i < classTopics.length; i++)
     string = string + classTopics[i] + "\n";
     //console.log(string);
-    };
-    return tableContents();
+};
+    tableContents();
+    return string;
 };
 
 var slides = function(num) {
@@ -59,7 +60,6 @@ module.exports = function(gideonbot) {
    } else {
      return num.reply("Please look at the class topics again!");
    }
-
  });
 /*
  gideonbot.respond(/what's due?/i, function(msg) {
@@ -103,15 +103,16 @@ module.exports = function(gideonbot) {
    }
  });
 
- gideonbot.respond(/what's due?/i, function(msg) {
-    switch (month, day) {
-        case ((month === 2) && (day < 28)):
-            return msg.reply("https://github.com/svodnik/sfjs6/tree/master/05-slackbot-lab "  + "https://github.com/svodnik/sfjs6/tree/master/06-objects-json");
-            break;
-        default:
-            return msg.reply("Sorry, I can't help you, phone a friend!");
-   }
- });
+ gideonbot.respond(/what's due?/i, function(res) {
+    var today = new Date();
+    var month = today.getMonth() + 1;
+    var day = today.getDate();    
+    if (month === 2 && day < 28) {
+        return res.reply("https://github.com/svodnik/sfjs6/tree/master/05-slackbot-lab "  + "https://github.com/svodnik/sfjs6/tree/master/06-objects-json");
+    } else {
+    return msg.reply("I believe it's all on you now, good luck!!!");
+    }});
+
 /*
     if ((month === 2) && (day < 28)) {
     return msg.reply("https://github.com/svodnik/sfjs6/tree/master/05-slackbot-lab "  + "https://github.com/svodnik/sfjs6/tree/master/06-objects-json");
