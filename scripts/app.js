@@ -73,25 +73,25 @@ module.exports = function(gideonbot) {
     });
 
 //Code to receive some random motivation, reset or take a break, or to feel accomplished
-    gideonbot.respond(/I'm (.*)/i, function(status) {
+    gideonbot.respond(/I'm (.*)/i, function(msg) {
         var mood;
-        mood = status.match[1];
+        mood = msg.match[1];
         console.log(mood);
         switch (mood) {
             case "tired":
-                return status.reply("listen to some music for motivation! \n" + randomMotivate());
+                return msg.reply("listen to some music for motivation! \n" + randomMotivate());
                 break;
             case "blah":
-                return status.reply("enjoy! \n" + randomSports());
+                return msg.reply("enjoy! \n" + randomSports());
                 break;
             case "going crazy":
-                return status.reply("take a break \n" + randomReset());
+                return msg.reply("take a break \n" + randomReset());
                 break;
             case "done":
-                return status.reply("Congratulations!!! \n" + "https://youtu.be/pIOOwhmkoLo");
+                return msg.reply("Congratulations!!! \n" + "https://youtu.be/pIOOwhmkoLo");
                 break;
             default:
-                return status.reply("Sorry, I can't help you, phone a friend!");
+                return msg.reply("Sorry, I can't help you, phone a friend!");
         }
     });
 
