@@ -14,7 +14,7 @@ var randomMotivate = motivate[Math.floor(Math.random() * motivate.length)];
 var randomSports = sports[Math.floor(Math.random() * sports.length)];
 
 var topics = function(){
-    var string= "\n";
+    var string = "\n";
     function tableContents () {
     for (i = 0; i < classTopics.length; i++)
     string = string + classTopics[i] + "\n";
@@ -33,27 +33,11 @@ module.exports = function(gideonbot) {
     gideonbot.hear(/hey gideon/, function(res) {
         return res.send("yes sir?");
     });
-    gideonbot.respond(/I'm (.*)/i, function(msg) {
-        var mood;
-        mood = msg.match[1];
-        console.log(mood);
-        switch (mood) {
-            case "tired":
-                return msg.reply("listen to some music for motivation! \n" + randomMotivate);
-                break;
-            case "blah":
-                return msg.reply("enjoy! \n" + randomSports);
-                break;
-            case "going crazy":
-                return msg.reply("take a break \n" + randomReset);
-                break;
-            case "done":
-                return msg.reply("Congratulations!!! \n" + "https://youtu.be/pIOOwhmkoLo");
-                break;
-            default:
-                return msg.reply("Sorry, I can't help you, phone a friend!");
-   }
- });
+
+    gideonbot.respond(/thank you!/, function(res) {
+        return res.reply("++ you're welcome!");
+    });
+
     gideonbot.respond(/what (.*)/i, function(msg) {
         var question;
         question = msg.match[1];
@@ -70,17 +54,40 @@ module.exports = function(gideonbot) {
                 break;
             default:
                 return msg.reply("I don't understand " + question + ". Have a good day!");
-   }
- });
- gideonbot.respond(/class slides (.*)/i, function(num) {
-   var number;
-   number = num.match[1];
-   if (number <= classSlides.length){
-     return num.send(classSlides[number]);
-   } else {
-     return num.reply("Please look at the class topics again!");
-   }
- });
+        }
+    });
+    gideonbot.respond(/class slides (.*)/i, function(num) {
+        var number;
+        number = num.match[1];
+            if (number <= classSlides.length){
+                return num.send(classSlides[number]);
+            } else {
+                return num.reply("Please look at the class topics again!");
+            }
+    });
+
+//Code to receive some random motivation, reset or take a break, or to feel accomplished
+    gideonbot.respond(/I'm (.*)/i, function(status) {
+        var mood;
+        mood = status.match[1];
+        console.log(mood);
+        switch (mood) {
+            case "tired":
+                return status.reply("listen to some music for motivation! \n" + randomMotivate);
+                break;
+            case "blah":
+                return status.reply("enjoy! \n" + randomSports);
+                break;
+            case "going crazy":
+                return status.reply("take a break \n" + randomReset);
+                break;
+            case "done":
+                return status.reply("Congratulations!!! \n" + "https://youtu.be/pIOOwhmkoLo");
+                break;
+            default:
+                return status.reply("Sorry, I can't help you, phone a friend!");
+        }
+    });
 /*
  gideonbot.respond(/what's due?/i, function(msg) {
     if ((month === 2) && (day < 28)) {
@@ -100,7 +107,6 @@ module.exports = function(gideonbot) {
     }
    });
 */
-//Code to receive some random motivation, reset or take a break, or to feel accomplished
 
  gideonbot.respond(/what's due?/i, function(res) {
     if ((month == 2) && (day < 28)) {
