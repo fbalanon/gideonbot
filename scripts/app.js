@@ -1,9 +1,11 @@
- var today = new Date();
- var month = today.getMonth() + 1;
- var day = today.getDate();
+//declaring variables and arrays
+
+var today = new Date();
+var month = today.getMonth() + 1;
+var day = today.getDate();
 
 var motivate = ["https://youtu.be/CevxZvSJLk8", "https://youtu.be/co6WMzDOh1o", "https://youtu.be/IKqV7DB8Iwg", "https://youtu.be/G_Vzpjv_kR4", "https://youtu.be/XuRnNRHcN4A", "https://youtu.be/vx2u5uUu3DE", "https://youtu.be/btPJPFnesV4", "https://youtu.be/y6Sxv-sUYtM", "https://youtu.be/04854XqcfCY", "https://youtu.be/rmpQReqZfd0", "https://youtu.be/nfWlot6h_JM"];
-var reset = ["https://www.youtube.com/watch?v=GdIaEL72PwI&t=2s","https://www.youtube.com/watch?v=ORirnHtuWjc","https://www.youtube.com/watch?v=un0ga8KBlYs&t=2s","https://www.youtube.com/watch?v=H_hgNmdONPE&t=2s","https://www.youtube.com/watch?v=d_pu9OtR3Ik&t=2s"]
+var reset = ["https://www.youtube.com/watch?v=GdIaEL72PwI&t=2s","https://www.youtube.com/watch?v=ORirnHtuWjc","https://www.youtube.com/watch?v=un0ga8KBlYs&t=2s","https://www.youtube.com/watch?v=H_hgNmdONPE&t=2s","https://www.youtube.com/watch?v=d_pu9OtR3Ik&t=2s"];
 var sports = ["https://www.youtube.com/watch?v=3judM0wSq7g","https://www.youtube.com/watch?v=Hzl0Jf6VPJQ","https://www.youtube.com/watch?v=FRlL7XYq77E","https://www.youtube.com/watch?v=GtnihCG1q3Y","https://www.youtube.com/watch?v=02cWZiMT25E","https://www.youtube.com/watch?v=WjaEfiEZHDo","https://www.reddit.com/r/SJEarthquakes/"];
 var classTopics = ["Class 00: Installfest","Class 01: Command line JavaScript",
 "Class 02: Data types & loops","Class 03: Conditionals & functions","Class 04: Scope & closures","Class 05: Slack bot lab","Class 06: Objects & JSON","Class 07: Intro to the DOM","Class 08: Intro to jQuery & templating","Class 09: Ajax & APIs","Class 10: Asynchronous JavaScript & callbacks","Class 11: Advanced APIs","Class 12: Feedr lab","Class 13: Prototypal inheritance","Class 14: The module pattern & this","Class 15: Intro to CRUD and Firebase","Class 16: Deploying your app","Class 17: TBD (instructor-student choice)","Class 18: Final project lab","Class 19: Final project presentations & graduation!"];
@@ -22,9 +24,8 @@ var randomSports = function() {
 var topics = function(){
     var string = "\n";
     function tableContents () {
-    for (i = 0; i < classTopics.length; i++)
+    for (var i = 0; i < classTopics.length; i++)
     string = string + classTopics[i] + "\n";
-    //console.log(string);
 };
     tableContents();
     return string;
@@ -34,7 +35,7 @@ var slides = function(num) {
   return classSlides[num];  
 };
 
-
+//Interact with my hubot named gideon
 module.exports = function(gideonbot) {
     gideonbot.hear(/hey gideon/, function(res) {
         return res.send("yes sir?");
@@ -44,6 +45,7 @@ module.exports = function(gideonbot) {
         return res.reply("++ you're welcome!");
     });
 
+//responds to "what" questions, "what are the class topics?" is my favorite
     gideonbot.respond(/what (.*)/i, function(msg) {
         var question;
         question = msg.match[1];
@@ -62,6 +64,8 @@ module.exports = function(gideonbot) {
                 return msg.reply("I don't understand " + question + ". Have a good day!");
         }
     });
+
+//after getting a list of the class topics, you could plug in the topic number with "class slides" below to actually get the slides
     gideonbot.respond(/class slides (.*)/i, function(num) {
         var number;
         number = num.match[1];
@@ -73,7 +77,7 @@ module.exports = function(gideonbot) {
     });
 
 //Code to receive some random motivation, reset or take a break, or to feel accomplished
-    gideonbot.respond(/I'm (.*)/i, function(msg) {
+    gideonbot.respond(/Hey I'm (.*)/i, function(msg) {
         var mood;
         mood = msg.match[1];
         console.log(mood);
@@ -95,7 +99,8 @@ module.exports = function(gideonbot) {
         }
     });
 
- gideonbot.respond(/what's due/i, function(msg) {
+//code to get the links Sasha's repo to get what's due this week
+ gideonbot.respond(/tell me what's due/i, function(msg) {
     if ((month === 2) && (day < 28)) {
         return msg.reply("https://github.com/svodnik/sfjs6/tree/master/05-slackbot-lab "  + "https://github.com/svodnik/sfjs6/tree/master/06-objects-json");
     } else if ((month === 3) && (day < 7)) {
