@@ -77,7 +77,7 @@ module.exports = function(gideonbot) {
     });
 
 //Code to receive some random motivation, reset or take a break, or to feel accomplished
-    gideonbot.respond(/Hey I'm (.*)/i, function(msg) {
+    gideonbot.respond(/feeling (.*)/i, function(msg) {
         var mood;
         mood = msg.match[1];
         console.log(mood);
@@ -88,7 +88,7 @@ module.exports = function(gideonbot) {
             case "blah":
                 return msg.reply("enjoy! \n" + randomSports());
                 break;
-            case "going crazy":
+            case "crazy":
                 return msg.reply("take a break \n" + randomReset());
                 break;
             case "done":
@@ -100,7 +100,7 @@ module.exports = function(gideonbot) {
     });
 
 //code to get the links Sasha's repo to get what's due this week
- gideonbot.respond(/tell me what's due/i, function(msg) {
+ gideonbot.respond(/Lo que es debido/i, function(msg) {
     if ((month === 2) && (day < 28)) {
         return msg.reply("https://github.com/svodnik/sfjs6/tree/master/05-slackbot-lab "  + "https://github.com/svodnik/sfjs6/tree/master/06-objects-json");
     } else if ((month === 3) && (day < 7)) {
