@@ -34,7 +34,7 @@ Then you can interact with gideon by typing `gideon help`.
     gideon help - Displays all of the help commands that gideon knows about.
     ...
 
-###Configuration
+##Configuration
 
 There is one .hear command in which, if you input "hey gideon" in slack, gideon should respond with "yes sir?" I primarily use this to see if gideon is around and/or awake.
 
@@ -43,7 +43,7 @@ I've set up gideon primarily with .respond listening, in which gideon will respo
 
 The switch statement has been used twice with gideon. 
 
-##First Switch
+###First Switch
 You could ask gideon the following:
 
     "what "
@@ -55,10 +55,10 @@ You could ask gideon the following:
 
     My favorite what is the "what are the class topics?" which will have gideon respond by listing each of the class topics by iterating through an array containing them. Which is very useful for the class slides command below.
 
-##Class Slides
+###Class Slides
 The "class slides" command allows you to request the class slides you need from the topics list. So if you type in "class slides 1" gideon will return a link for the class slides from 1. Keep in mind that it's pulling the slides link from an array. 
 
-##Second Switch 
+###Second Switch 
 The second switch statement is about feelings. You could tell gideon the following:
 
     "feeling "
@@ -71,7 +71,7 @@ The second switch statement is about feelings. You could tell gideon the followi
 
     Gideon's responses will vary and most responses will be random from an specific array based on your feelings.
 
-##Homework and Readings
+###Homework and Readings
 Originally this was called "what's due" in which you could ask gideon what's due and gideon will:
 
     1. Check today's date
