@@ -51,12 +51,12 @@ You could ask gideon the following:
     - "is the meaning of life?"
     - "are the class topics"
 
-    If gideon doesn't recognize your what question, gideon will not understand and will respond as such.
+    If gideon doesn't recognize your "what" question, gideon will not understand and will respond as such.
 
     My favorite what is the "what are the class topics?" which will have gideon respond by listing each of the class topics by iterating through an array containing them. Which is very useful for the class slides command below.
 
 ##Class Slides
-The "class slides" command allows you to request the class slides you need from the topics list. So if you type in "class slides 1" gideon will return a link for the class slides from 1.
+The "class slides" command allows you to request the class slides you need from the topics list. So if you type in "class slides 1" gideon will return a link for the class slides from 1. Keep in mind that it's pulling the slides link from an array. 
 
 ##Second Switch 
 The second switch statement is about feelings. You could tell gideon the following:
@@ -69,6 +69,17 @@ The second switch statement is about feelings. You could tell gideon the followi
 
     If gideon doesn't recognize your feelings, gideon will not understand and will tell you to phone a friend.
 
-    Gideon's responses will vary and most will will be from random from an array.
+    Gideon's responses will vary and most responses will be random from an specific array based on your feelings.
+
+##Homework and Readings
+Originally this was called "what's due" in which you could ask gideon what's due and gideon will:
+
+    1. Check today's date
+    2. Compare it to the timelines set 
+    3. And pull the two urls that addresses what's due the following Monday
+       - if no dates fall within a timeline, gideon wishes you good luck!
+
+Note: The command for "what's due" was changed to "Lo que se debe" which means the same in Spanish. I had to change it because there was a conflict and "what's due" wasn't responding in Slack.  
+
 
 One last thing, when sending "thank you!" directly to gideon, gideon is suppose to directly reply back with "++ you're welcome!"
