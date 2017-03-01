@@ -92,7 +92,7 @@ module.exports = function(gideonbot) {
                 return msg.reply("take a break \n" + randomReset());
                 break;
             case "done":
-                return msg.reply("Congratulations!!! \n" + "https://youtu.be/pIOOwhmkoLo");
+                return msg.reply("Congratulations!!! \n" + "https://youtu.be/KQ6zr6kCPj8");
                 break;
             default:
                 return msg.reply("Sorry, I can't help you, phone a friend!");
