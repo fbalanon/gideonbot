@@ -100,19 +100,19 @@ module.exports = function(gideonbot) {
     });
 
 //code to get the links Sasha's repo to get what's due this week
- gideonbot.respond(/Lo que es debido/i, function(msg) {
+ gideonbot.respond(/Lo que se debe/i, function(msg) {
      console.log(month + "-" + day);
     if (month === 2 && day <= 28) {
         return msg.reply("https://github.com/svodnik/sfjs6/tree/master/05-slackbot-lab "  + "https://github.com/svodnik/sfjs6/tree/master/06-objects-json");
     } else if (month === 3 && day < 7) {
         return msg.reply("https://github.com/svodnik/sfjs6/tree/master/07-dom-intro " + "https://github.com/svodnik/sfjs6/tree/master/08-jquery-templating");
-    } else if ((month === 3) && (day < 14)) {
+    } else if (month === 3 && day < 14) {
         return msg.reply("https://github.com/svodnik/sfjs6/tree/master/09-ajax-apis " + "https://github.com/svodnik/sfjs6/tree/master/10-async-callbacks");
-    } else if ((month === 3) && (day < 21)) {
+    } else if (month === 3 && day < 21) {
         return msg.reply("https://github.com/svodnik/sfjs6/tree/master/11-advanced-apis " + "https://github.com/svodnik/sfjs6/tree/master/12-feedr-lab");
-    } else if ((month === 3) && (day < 28)) {
+    } else if (month === 3 && day < 28) {
         return msg.reply("https://github.com/svodnik/sfjs6/tree/master/13-prototypal-inheritance " + "https://github.com/svodnik/sfjs6/tree/master/14-module-pattern-this");
-    }  else if (((month === 3) && (day <= 31)) || ((month === 4) && (day < 4))) {
+    }  else if ((month === 3 && day <= 31) || (month === 4 && day < 4)) {
         return msg.reply("https://github.com/svodnik/sfjs6/tree/master/15-crud-firebase " + "https://github.com/svodnik/sfjs6/tree/master/16-deploying-your-app");
     } else {
         return msg.reply("I believe it's all on you now, good luck!!!");
